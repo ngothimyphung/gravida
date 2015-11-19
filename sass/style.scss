@@ -39,11 +39,20 @@ $xs-screen:"max-width:767px";
 	-webkit-border-radius:$radius;
 	border-radius:$radius;
 }
-@mixin box-shadow($h, $v, $blur, $pread, $color) {
-    -webkit-box-shadow:$h $v $blur $pread $color inset;
-    -moz-box-shadow:$h $v $blur $pread $color inset;
-    -ms-box-shadow:$h $v $blur $pread $color inset;
-    box-shadow:$h $v $blur $pread $color inset;
+$box-shadow1:inset 0px 4px 2px -1px rgba(153, 153, 153, 0.68);
+$box-shadow2:0 1px 3px rgba(0, 0, 0, 0.25), 0 2px #fff inset;
+
+@mixin box-shadow1($box-shadow1) {
+    -webkit-box-shadow:$box-shadow1;
+    -moz-box-shadow:$box-shadow1;
+    -ms-box-shadow:$box-shadow1;
+    box-shadow:$box-shadow1;
+}
+@mixin box-shadow2($box-shadow2) {
+    -webkit-box-shadow:$box-shadow2;
+    -moz-box-shadow:$box-shadow2;
+    -ms-box-shadow:$box-shadow2;
+    box-shadow:$box-shadow2;
 }
 
 input{
@@ -101,7 +110,7 @@ h1, h2, h3 {
 	height:34px;
 	border:0;
 	vertical-align:top;
-	@include box_shadow(inset 0px, 4px, 2px, -1px, rgba(153, 153, 153, 0.68));
+	@include box-shadow1($box-shadow1);
 	background:$color_white url(../images/search.png) no-repeat 100% 0;
 	padding-left:10px;
 	padding-right:32px;
@@ -123,7 +132,7 @@ h1, h2, h3 {
 	background:url(../images/tan2.jpg);
 	border-radius:4px;
 	@include border_radius(4px);
-	@include box-shadow(0, 1px, 3px, rgba(0, 0, 0, 0.25), 0 2px #fff inset);
+	@include box-shadow2($box-shadow2);
 	padding-bottom:20px;
 	margin:30px auto 0 auto;
 	form{
@@ -161,7 +170,7 @@ h1, h2, h3 {
 	background:#fff url(../images/arrow-btn-blue.png) no-repeat 98px 19px;
 	padding:15px 32px 13px 16px;
 	@include border_radius(3px); 
-	@include box-shadow(0, 1px, 3px, rgba(0, 0, 0, 0.25), 0 2px #fff inset);
+	@include box-shadow2($box-shadow2);
 	
 }
 .mt25{
@@ -177,7 +186,7 @@ h1, h2, h3 {
 	font-size:12px;
 	line-height:12px;
 	padding:7px 0 6px 12px;
-	@include box-shadow(0, 1px, 3px, rgba(0, 0, 0, 0.25), 0 2px #fff inset);
+	@include box-shadow2($box-shadow2);
 }
 
 .gray_bg{
@@ -260,7 +269,7 @@ a.buy{
 	padding:10px 15px 10px 15px;
 	background:#002b5a url(../images/arrow-btn-white.png) no-repeat;
 	background-position:95px 13px;
-	@include box-shadow(0, 1px, 3px, rgba(0,0,0,0.25),0 2px #fff inset);
+	@include box-shadow2($box-shadow2);
 	@include border_radius(3px);	
 }
 .padding-r-l {
